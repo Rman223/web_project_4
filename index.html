@@ -12,24 +12,47 @@
   <div class="page__content">
     <header class="header">
       <img src="images/Vector.svg" alt="vector" class="header__vector">
-      
+
     </header>
     <hr class="line">
+    
     <section class="profile">
-     
+
       <img src="./images/Jacques.jpg" alt="Jacues Cousteau" class="profile__avatar">
-    
-     <div class="profile__text">
-      <img src="./images/Jacques Cousteau_title.svg" alt="Jacques Cousteau" class="profile__title">
-      <div class="profile__rectangle-small">
-        <img src="./images/Vector_pencile.svg" alt="Vector Pencil" class="profile__pencil">
-      </div>  
-      <img src="./images/Explorer.svg" alt="Explorer" class="profile__subtitle">
-      
-      
-    </div>
-    
-      
+
+      <!-- <div class="profile__text">
+        
+        <h2 class="profile__title">Jacques Cousteau</h2>
+
+        <div class="profile__rectangle-small">
+          
+            <img src="./images/Vector_pencile.svg" alt="Vector Pencil" class="profile__pencil">
+          
+        </div>
+
+        
+        <p class="profile__subtitle">Explorer</p>
+
+
+      </div> -->
+      <ul class="profile__text">
+        <li class="profile__title">
+          <h2 class="profile__title-text">Jacques Cousteau</h2>
+        </li>
+        <button class="profile__rectangle-small">
+          <img src="./images/Vector_pencile.svg" alt="Vector Pencil" class="profile__pencil">
+        </button>
+        
+        <li class="profile__subtitle">
+          <p class="profile__subtitle-text">Explorer</p>
+        </li>
+        <!-- <button class="profile__rectangle-small">
+          <img src="./images/Vector_pencile.svg" alt="Vector Pencil" class="profile__pencil">
+        </button> -->
+      </ul>
+     
+
+
       <div class="profile__rectangle-large">
         <img src="./images/Vector_plus_sign.svg" alt="Vector Plus-Sign" class="profile__plus-sign">
       </div>
@@ -45,7 +68,8 @@
           <img src="./images/heart_Vector.svg" alt="heart_vector" class="card__vector">
         </div>
       </div>
-      <div class="card"> <!--Lake Louisa-->
+      <div class="card">
+        <!--Lake Louisa-->
         <div class="card__element">
           <img src="./images/Lake.jpg" alt="Lake Louisa" class="card__item-photo">
         </div>
@@ -54,7 +78,8 @@
           <img src="./images/heart_Vector.svg" alt="heart_vector" class="card__vector">
         </div>
       </div>
-      <div class="card">  <!--Bald Mountain-->
+      <div class="card">
+        <!--Bald Mountain-->
         <div class="card__element">
           <img src="./images/BaldMountain.jpg" alt="Bald Mountain" class="card__item-photo">
         </div>
@@ -63,7 +88,8 @@
           <img src="./images/heart_Vector.svg" alt="heart_vector" class="card__vector">
         </div>
       </div>
-      <div class="card">  <!--Latemar-->
+      <div class="card">
+        <!--Latemar-->
         <div class="card__element">
           <img src="./images/Latemer.jpg" alt="Latemer" class="card__item-photo">
         </div>
@@ -72,7 +98,8 @@
           <img src="./images/heart_Vector.svg" alt="heart_vector" class="card__vector">
         </div>
       </div>
-      <div class="card">  <!--Vanois National-->
+      <div class="card">
+        <!--Vanois National-->
         <div class="card__element">
           <img src="./images/Vanosinational.jpg" alt="Vanios National" class="card__item-photo">
         </div>
@@ -81,7 +108,8 @@
           <img src="./images/heart_Vector.svg" alt="heart_vector" class="card__vector">
         </div>
       </div>
-      <div class="card">  <!--Largo di Braies-->
+      <div class="card">
+        <!--Largo di Braies-->
         <div class="card__element">
           <img src="./images/Lagodi.jpg" alt="Largo di Braies" class="card__item-photo">
         </div>
@@ -90,33 +118,37 @@
           <img src="./images/heart_Vector.svg" alt="heart_vector" class="card__vector">
         </div>
       </div>
-      
-      </div>
-      
-      <div class="modal">
-        
-        <div class="modal__container">
-          
-            <img src="./images/Close Icon.svg" alt="Close-Icon" class="modal__close">
-          
-          <form action="#" class="form">
-            <img src="./images/Edit profile.svg" alt="Edit Profile" class="modal__image">
-            <!-- <span class="form__field1"></span> -->
-            <input type="text" value="Jacques Cousteau" class="form__input"> 
-            <hr class="line">
 
-            <!-- <span class="form__field2"></span> -->
-            <input type="text" value="Explorer" class="form__input"> 
-            <hr class="line">
-            <button class="modal__close-button">Save</button>
-          </form>  
-        </div>
-    </section>
-    <!-- <footer class="footer">
-      <img src="./images/© 2020 Around The U.S..svg" alt="2020 Around The U.S." class="footer__copy-right">
-    </footer> -->
   </div>
 
+  <div class="modal">
+
+    <div class="modal__container">
+      <div class="modal__close">
+      <!-- <button class= "modal__close-button"> -->
+      <img src="./images/Close Icon.svg" alt="Close-Icon" class="modal__close-image">
+      <!-- </button> -->
+      </div>
+      <form action="#" class="form">
+        <!-- <img src="./images/Close Icon.svg" alt="Close-Icon" class="modal__close"> -->
+        <img src="./images/Edit profile.svg" alt="Edit Profile" class="modal__image">
+
+        <input type="text" value="Jacques Cousteau" class="form__input form__input_name">
+        
+
+
+        <input type="text" value="Explorer" class="form__input form__input_occupation">
+       
+        <button class="modal__submit-button" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  </section>
+  <footer class="footer">
+    <img src="./images/© 2020 Around The U.S..svg" alt="2020 Around The U.S." class="footer__copy-right">
+  </footer>
+  </div>
+  <script src="index.js"></script>
 </body>
 
 </html>
