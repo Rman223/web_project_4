@@ -25,6 +25,9 @@ const profileOccupation = document.querySelector('.profile__subtitle-text');
 profileName.textContent = inputName.value;
 profileOccupation.textContent = inputOccupation.value;
 
+
+toggleModal();
+
 })
  
 
