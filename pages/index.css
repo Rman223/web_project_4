@@ -45,9 +45,7 @@
   
 }
 
-.profile__title {
-  /* max-width: 380px; */
-}
+
 .profile__title-text {
   max-width: 380px;
   height: 43px;
@@ -86,6 +84,7 @@
   margin-top: 20px;
   
   margin-left: 24px;
+  transition-duration: 1s;
 
 }
 .profile__rectangle-small:hover {
@@ -113,6 +112,7 @@
   justify-content: center; 
   margin-top: 25px;
   margin-left: 154px;
+  transition-duration: 1s;
   
 }
 .profile__rectangle-large:hover {
@@ -246,6 +246,17 @@
   opacity: .8;;
 }
 @media screen and (max-width: 425px) {
+  .page {
+    /* max-width: 100%; */
+  }
+}
+@media screen and (max-width: 425px) {
+  .profile__center {
+    align-items: center ;
+    
+  }
+}
+@media screen and (max-width: 425px) {
   .profile__subtitle {
     margin: auto;
   }
@@ -260,9 +271,28 @@
 @media screen and (max-width: 425px) {
   .profile__text {
    max-width: 280px;
-   margin: 10.25px auto 36px;
+   align-items: baseline;
+   padding-left: 0;
+   margin-bottom: 36px;
+   /* height: 38px;  */
+   /*margin: 10.25px auto 36px;*/
   }
 }
+@media screen and (max-width: 425px) {
+  .profile__title {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 425px) {
+  .profile__title-text {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 56px;
+
+  text-align: center;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .profile__rectangle-small {
     max-width: 18px;
@@ -277,12 +307,6 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-}
-@media screen and (max-width: 425px) {
-  .footer__copy-right {
-    margin: 48px 0 36px 19px;
-  }
-
 }
 
 @media screen and (max-width: 425px) {
@@ -317,7 +341,7 @@
 }
 @media screen and (max-width: 425px) {
   .profile {
-    margin-top: 38.25px ;
+    margin-top: 38.25px auto 0;
   }
 }
 @media screen and (max-width: 425px) {
@@ -342,4 +366,18 @@
     grid-template-columns: 1fr;
     grid-column-gap: 20px;
   }
+}
+@media screen and (max-width: 425px) {
+  .footer {
+    max-width: 282px;
+    margin: 0 auto;
+    
+
+  }
+}
+@media screen and (max-width: 425px) {
+  .footer__copy-right {
+    margin: 48px auto 36px;
+  }
+
 }
