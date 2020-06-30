@@ -6,6 +6,7 @@
 @import url(../Blocks/locations/locations.css);
 @import url(../Blocks/line/line.css);
 @import url(../Blocks/modal/modal.css);
+@import url(../Blocks/modal/_overlay/modal_overlay.css);
 @import url(../Blocks/form/form.css);
 @import url(../Blocks/footer/footer.css);
 
