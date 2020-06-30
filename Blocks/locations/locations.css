@@ -1,0 +1,17 @@
+
+
+.locations {
+  margin-top: 51px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 18px;
+  grid-row-gap: 21px;
+
+}
+
+@media screen and (max-width: 425px) {
+  .locations {
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+  }
+}

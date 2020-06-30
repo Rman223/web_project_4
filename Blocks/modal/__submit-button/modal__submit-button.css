@@ -1,0 +1,13 @@
+
+
+.modal__submit-button {
+  
+  width: 358px;
+  height: 50.15px;
+  margin: 18.26px 36px 36.51px 36px;
+  background-color: #000000;
+  color: #ffffff;
+} 
+.modal__submit-button:hover {
+  opacity: .8;;
+}

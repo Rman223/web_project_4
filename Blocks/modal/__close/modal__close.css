@@ -1,0 +1,12 @@
+
+
+.modal__close {
+  width: 515px;
+  max-height: 50px;
+  text-align: right;
+}
+
+.modal__close-image:hover {
+  opacity: .6; 
+
+}

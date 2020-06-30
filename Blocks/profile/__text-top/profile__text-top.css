@@ -1,0 +1,14 @@
+
+
+
+.profile__text-top {
+  width: 428px;
+  display: flex;
+}
+
+@media screen and (max-width: 425px) {
+  .profile__text-top {
+    display: flex;
+    justify-content: center;
+  }
+}

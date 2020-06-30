@@ -1,0 +1,24 @@
+@import url(./__element/card__element.css);
+@import url(./__footer/card__footer.css);
+@import url(./__item-photo/card__item-photo.css);
+@import url(./__title/card__title.css);
+@import url(./__vector/card__vector.css);
+
+
+
+
+
+.card {
+  max-width: 282px;
+  height: 361px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  /* margin: 0; */
+   
+ }
+
+ @media screen and (max-width:425px) {
+  .card {
+    margin: 0 auto;
+  }
+}
