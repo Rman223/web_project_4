@@ -1,7 +1,8 @@
-
+@import url(./__container/modal__container.css);
 @import url(./__close/modal__close.css);
 @import url(./__image/modal__image.css);
 @import url(./__submit-button/modal__submit-button.css);
+
 
 
 
@@ -17,13 +18,4 @@
   
   display: none;
   
-}
-/* .modal_overlay {
-  display: flex;
-} */
-
-@media screen and (max-width: 425px) {
-  .modal {
-    width: 282px;
-  }
 }

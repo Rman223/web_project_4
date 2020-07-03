@@ -1,12 +1,26 @@
 
 
 .modal__close {
-  width: 515px;
-  max-height: 50px;
-  text-align: right;
+  background-image: url("../../../images/Close\ Icon.svg");
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  
+  width: 40.7px;
+  height: 40.7px;
+  margin-left: 460px;
+  transition-duration: 1s;
+  
+  
 }
 
-.modal__close-image:hover {
+.modal__close:hover {
   opacity: .6; 
 
+}
+@media screen and (max-width: 425px)
+{
+  .modal__close {
+    margin-left: 275px;
+  }
 }
