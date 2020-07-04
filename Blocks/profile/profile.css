@@ -2,7 +2,7 @@
 @import url(./__center-content/profile__center-content.css);
 
 @import url(./__rectangle-small/profile__rectangle-small.css);
-@import url(./__subtitle-text/profile__sutitle-text.css);
+@import url(./__subtitle-text/profile__subtitle-text.css);
 @import url(./__subtitle/profile__subtitle.css);
 @import url(./__pic/profile__pic.css);
 @import url(./__text-top/profile__text-top.css);
@@ -28,7 +28,7 @@
 @media screen and (max-width: 425px) {
   .profile {
     flex-direction: column;
-    margin-top: 38.25px auto 0;
+    margin-top: 38.25px;
     
   }
 }

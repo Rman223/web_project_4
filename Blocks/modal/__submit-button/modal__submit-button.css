@@ -9,7 +9,7 @@
   color: #ffffff;
 } 
 .modal__submit-button:hover {
-  opacity: .8;;
+  opacity: .8;
 }
 
 @media screen and (max-width: 425px) {
