@@ -23,13 +23,7 @@
   margin-top: 40px;
 }
 
-/* .profile {
-  display: grid;
-  grid-template-columns:  120px 1fr 1fr;
-  grid-gap: 24px;
-  align-items: center;
-  width: 882px;
-} */
+
 
 @media screen and (max-width: 425px) {
   .profile {

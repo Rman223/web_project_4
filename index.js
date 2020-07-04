@@ -6,6 +6,10 @@ const modal = document.querySelector('.modal');
 
 const form = document.querySelector('.form');
 const inputName = document.querySelector('.form__input_name');
+const inputOccupation = document.querySelector('.form__input_occupation');
+
+const profileName = document.querySelector('.profile__title-text');
+const profileOccupation = document.querySelector('.profile__subtitle-text');
 
 function toggleModal() {
   modal.classList.toggle('modal_overlay');
@@ -18,10 +22,7 @@ closeButton.addEventListener('click', toggleModal);
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-const inputOccupation = document.querySelector('.form__input_occupation');
 
-const profileName = document.querySelector('.profile__title-text');
-const profileOccupation = document.querySelector('.profile__subtitle-text');
 
 profileName.textContent = inputName.value;
 profileOccupation.textContent = inputOccupation.value;
