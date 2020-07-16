@@ -9,6 +9,12 @@
   height: 18.13px;
   margin-top: 31px;
   margin-right: 20px;
+  cursor: pointer;
+  transition-duration: 1s;
+}
+
+.card__vector:hover {
+  opacity: 50%;
 }
 
 

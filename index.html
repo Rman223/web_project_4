@@ -15,118 +15,86 @@
 
     </header>
 
+    <main>
+      <section class="profile">
 
-    <section class="profile">
-      <div class="profile__pic">
-        <img src="./images/Jacques.jpg" alt="Jacues Cousteau" class="profile__avatar">
+        <div class="profile__pic">
+          <img src="./images/Jacques.jpg" alt="Jacues Cousteau" class="profile__avatar">
+        </div>
+        <div class="profile__center-content">
+          <div class="profile__text-top">
+            <h2 class="profile__title-text">Jacques Cousteau</h2>
+            <button class="profile__rectangle-small"> </button>
+          </div>
+
+          <div class="profile__subtitle">
+            <p class="profile__subtitle-text">Explorer</p>
+          </div>
+
+        </div>
+
+        <button class="profile__plus-sign"></button>
+      </section>
+
+      <section class="locations">
+        <div class="card">
+
+        </div>
+
+      </section>
+    </main>
+    <div class="modal modal__edit_profile">
+      <div class="modal__container">
+        <button type="button" class="modal__close"></button>
+        <form action="#" class="form">
+          <h2 class="modal__image">Edit Profile</h2>
+          <input type="text" value="" placeholder="Name" class="form__input form__input_name">
+          <input type="text" value="" placeholder="Occupation" class="form__input form__input_occupation">
+          <button class="modal__submit-button" type="submit">Save</button>
+        </form>
       </div>
-      <div class="profile__center-content">
-        <div class="profile__text-top">
-          <h2 class="profile__title-text">Jacques Cousteau</h2>
-          <button class="profile__rectangle-small"> </button>
-        </div>
+    </div>
 
-        <div class="profile__subtitle">
-          <p class="profile__subtitle-text">Explorer</p>
-        </div>
+    <div class="modal modal__edit_card">
+      <div class="modal__container">
+        <button type="button" class="modal__close"></button>
+        <form action="#" class="form form_card">
+          <h2 class="modal__image">New Place</h2>
+          <input type="text" value="" placeholder="Title" class="form__input form__input_title">
+          <input type="url" value="" placeholder="Image Link" class="form__input form__input_image-link">
+          <button class="modal__submit-button" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal modal__edit_image">
+      <div class="modal__container">
+        <button type="button" class="modal__close modal__close_image"></button>
+        <figure>
+          <img src="" alt="" class="modal__pop-image">
+          <figcaption class="modal__figcap"></figcaption>
+        </figure>
 
       </div>
+    </div>
 
-      <button class="profile__plus-sign"></button>
-    </section>
-
-    <section class="locations">
-
-      <div class="card">
-        <!-- ****Yosmite**** -->
-        <div class="card__element">
-          <img src="./images/Yosemitie.jpg" alt="Yosemitie.jpg" class="card__item-photo">
-        </div>
-        <div class="card__footer">
-
-          <h2 class="card__title">Yosemite Valley</h2>
-          <button class="card__vector"></button>
-
-        </div>
-      </div>
-      <div class="card">
-        <!--Lake Louisa-->
-
-        <img src="./images/Lake.jpg" alt="Lake Louisa" class="card__item-photo">
-
-        <div class="card__footer">
-          <h2 class="card__title">Lake Louisa</h2>
-          <button class="card__vector"></button>
-        </div>
-      </div>
-      <div class="card">
-        <!--Bald Mountain-->
-
-        <img src="./images/BaldMountain.jpg" alt="Bald Mountain" class="card__item-photo">
-
-        <div class="card__footer">
-          <h2 class="card__title">Bald Mountain</h2>
-          <button class="card__vector"></button>
-        </div>
-      </div>
-      <div class="card">
-        <!--Latemar-->
-
-        <img src="./images/Latemer.jpg" alt="Latemer" class="card__item-photo">
-
-        <div class="card__footer">
-          <h2 class="card__title">Latemar</h2>
-          <button class="card__vector"></button>
-        </div>
-      </div>
-      <div class="card">
-        <!--Vanois National-->
-
-        <img src="./images/Vanosinational.jpg" alt="Vanios National" class="card__item-photo">
-
-        <div class="card__footer">
-          <h2 class="card__title">Vanois National</h2>
-          <button class="card__vector"></button>
-        </div>
-      </div>
-      <div class="card">
-        <!--Largo di Braies-->
-
-        <img src="./images/Lagodi.jpg" alt="Largo di Braies" class="card__item-photo">
-
-        <div class="card__footer">
-          <h2 class="card__title">Largo di Braies</h2>
-          <button class="card__vector"></button>
-        </div>
-      </div>
-
-
-
-      <div class="modal">
-
-        <div class="modal__container">
-          <button class="modal__close"></button>
-
-          <form action="#" class="form">
-
-            <h2 class="modal__image">Edit Profile</h2>
-
-
-            <input type="text" value="Jacques Cousteau" placeholder="Name" class="form__input form__input_name">
-
-
-
-            <input type="text" value="Explorer" placeholder="Occupation" class="form__input form__input_occupation">
-
-            <button class="modal__submit-button" type="submit">Save</button>
-          </form>
-        </div>
-      </div>
-    </section>
     <footer class="footer">
       <p class="footer__copy-right">&copy; 2020 Around the U.S.</p>
     </footer>
-  </div>
+
+    <template class="card-template">
+      <div class="card__element">
+
+        <button type="button" aria-label="Remove" class="card__delete-button"></button>
+        <img src="./" alt="" class="card__item-photo">
+
+        <div class="card__footer">
+          <h2 class="card__title"></h2>
+          <button type="button" aria-label="Like" class="card__vector"></button>
+        </div>
+      </div>
+  </template>
+
+
   <script src="index.js"></script>
 </body>
 

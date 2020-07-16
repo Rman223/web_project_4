@@ -1,10 +1,11 @@
-  
+@import url(./__pop-image/modal__pop-image.css);  
 @import url(./__close/modal__close.css);
+@import url(./__close/_image/modal__close_image.css);
 @import url(./__image/modal__image.css);
 @import url(./__submit-button/modal__submit-button.css);
-
-
-
+@import url(./__container/modal__container.css);
+@import url(./__figcap/modal__figcap.css);
+@import url(./__edit/_image/modal__edit_image.css);
 
 .modal {
   position: fixed;
@@ -17,5 +18,6 @@
   height: 100%;
   
   display: none;
+  
   
 }
