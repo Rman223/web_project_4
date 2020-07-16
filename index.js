@@ -25,8 +25,8 @@ const inputOccupation = document.querySelector('.form__input_occupation');
 const addCardLargeButtonOpen = document.querySelector('.profile__plus-sign');
 const closeCardLargeButton = addCardModal.querySelector('.modal__close');
 const createButton = addCardModal.querySelector('.modal__submit-button');
-const templateCard = document.querySelector('.card-template');
 
+const inputTitle = document.querySelector('.form__input_title')
 const inputLink = document.querySelector('.form__input_image-link');
 const locationTitle = document.querySelector('.card__title');
 const locationLink = document.querySelector('.card__item-photo');
@@ -40,21 +40,9 @@ closeCardLargeButton.addEventListener('click', () => {
 })
 createButton.addEventListener('click', () => {
   toggleModal(addCardModal);
-  
-  
-    
 })
 
-cardForm.addEventListener('submit', (e) => {
-  
 
-  e.preventDefault();
-
-  form.textContent = inputTitle.value;
-  locationLink.textContent = inputLink.value;
-
-  toggleModal();
-})
 
 
 
@@ -165,11 +153,22 @@ const initialCards = [
     figCap.textContent = data.name;
     
   })
- 
- 
 
-  list.append(cardElement);
+  cardForm.addEventListener('submit', (data) => {
+    data.preventDefault();
+    
+    inputLink.src = data.link
+    inputTitle.textContent = data.name
+
+    
+    
+     
+    
+   
+  })
   
-
+  list.append(cardElement);
 })
+
+
  
