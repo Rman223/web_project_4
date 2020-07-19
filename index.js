@@ -12,9 +12,7 @@ const imageModal = document.querySelector('.modal__edit_image');
 const closeImage = imageModal.querySelector('.modal__close_image');
 const figCap = imageModal.querySelector('.modal__figcap');
 const popImage = imageModal.querySelector('.modal__pop-image');
-closeImage.addEventListener('click', () => {
-  toggleModal(imageModal);
-});
+
 
 // Forms
 const form = document.querySelector('.form');
@@ -30,7 +28,13 @@ const inputTitle = document.querySelector('.form__input_title')
 const inputLink = document.querySelector('.form__input_image-link');
 const locationTitle = document.querySelector('.card__title');
 const locationLink = document.querySelector('.card__item-photo');
+const list = document.querySelector('.card');
+const elementCard = document.querySelector('.card__element');
 
+//New card form buttons
+closeImage.addEventListener('click', () => {
+  toggleModal(imageModal);
+});
 
 addCardLargeButtonOpen.addEventListener('click', () => {
   toggleModal(addCardModal);
@@ -44,11 +48,7 @@ createButton.addEventListener('click', () => {
 
 
 
-
-
-
-
-
+//  Profile edit buttom
 function toggleModal(modal) {
   modal.classList.toggle('modal_overlay');
   
@@ -112,11 +112,8 @@ const initialCards = [
   }
 ];
 
-
-
-  const list = document.querySelector('.card');
-
-  initialCards.forEach((data) => {
+  
+  initialCards.forEach((data) =>  {
   const cardTemplate = document.querySelector('.card-template') .content.querySelector('.card__element')  ;
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -124,7 +121,7 @@ const initialCards = [
   const cardTitle = cardElement.querySelector('.card__title');
   const cardLikeButton = cardElement.querySelector('.card__vector');
   const cardDeleteButton = cardElement.querySelector('.card__delete-button');
-
+   
   cardTitle.textContent = data.name;
   
   figCap.textContent = data.name;
@@ -132,7 +129,7 @@ const initialCards = [
     this.src = data.link;
   }
  
-
+  
 
   cardDeleteButton.addEventListener('click', () => {
     //remove card   
@@ -154,21 +151,61 @@ const initialCards = [
     
   })
 
-  cardForm.addEventListener('submit', (data) => {
-    data.preventDefault();
-    
-    inputLink.src = data.link
-    inputTitle.textContent = data.name
-
-    
-    
-     
-    
-   
-  })
+ 
+  
   
   list.append(cardElement);
 })
 
 
+// Function to create new card from pop up form
+function createCard(data) {
+  // here we do everything required for creating a card
+  const cardTemplate = document.querySelector('.card-template') .content.querySelector('.card__element')  ;
+  const cardElement = cardTemplate.cloneNode(true);
+
+  const cardImage = cardElement.querySelector('.card__item-photo');
+  const cardTitle = cardElement.querySelector('.card__title');
+  const cardLikeButton = cardElement.querySelector('.card__vector');
+  const cardDeleteButton = cardElement.querySelector('.card__delete-button');
+   
+  cardTitle.textContent = data.name;
+  
+  figCap.textContent = data.name;
+  cardImage.onerror = function() {
+    this.src = data.link;
+  }
+ 
+  
+
+  cardDeleteButton.addEventListener('click', () => {
+    //remove card   
+    cardElement.remove();
+  })
+
+  cardLikeButton.addEventListener('click', (e) => {
+  //   //toggle heartState
+  e.target.classList.toggle('card__vector_highlight');
+  })
+ 
+
+  cardImage.addEventListener('click', () => {
+    //open image modal
+    toggleModal(imageModal);
+    
+    popImage.src = data.link;
+    figCap.textContent = data.name;
+    
+  })
+  list.prepend(cardElement);
+}
+
+
+cardForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    // Dont forget that you need to select inputName and inputLink inputs from modal with card addition
+    createCard({name: inputTitle.value, link: inputLink.value}); // we also use our createCard function when user adds a new card
+  toggleModal(elementCard);
+ })
+ 
  
