@@ -26,10 +26,15 @@ const createButton = addCardModal.querySelector('.modal__submit-button');
 
 const inputTitle = document.querySelector('.form__input_title')
 const inputLink = document.querySelector('.form__input_image-link');
-const locationTitle = document.querySelector('.card__title');
-const locationLink = document.querySelector('.card__item-photo');
+
 const list = document.querySelector('.card');
 const elementCard = document.querySelector('.card__element');
+
+
+// Toggle between pop up elements and profile & location card edits
+function toggleModal(modal) {
+  modal.classList.toggle('modal_overlay');
+}
 
 //New card form buttons
 closeImage.addEventListener('click', () => {
@@ -49,10 +54,7 @@ createButton.addEventListener('click', () => {
 
 
 //  Profile edit buttom
-function toggleModal(modal) {
-  modal.classList.toggle('modal_overlay');
-  
-}
+
 
 editButton.addEventListener('click', () => {
   toggleModal(addProfileModal);
@@ -81,81 +83,33 @@ toggleModal();
 })
 
 
-
-
-
-
 const initialCards = [
-  {
-      name: "Yosemite Valley",
-      link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-      name: "Lake Louise",
-      link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-      name: "Bald Mountains",
-      link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-      name: "Latemar",
-      link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-      name: "Vanois National...",
-      link: "https://code.s3.yandex.net/web-code/vanois.jpg"
-  },
+
   {
       name: "Lago di Braies",
       link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
+  },
+  {
+    name: "Vanois National...",
+    link: "https://code.s3.yandex.net/web-code/vanois.jpg"
+},
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+},
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+},
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+},
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+},
 ];
-
-  
-  initialCards.forEach((data) =>  {
-  const cardTemplate = document.querySelector('.card-template') .content.querySelector('.card__element')  ;
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardImage = cardElement.querySelector('.card__item-photo');
-  const cardTitle = cardElement.querySelector('.card__title');
-  const cardLikeButton = cardElement.querySelector('.card__vector');
-  const cardDeleteButton = cardElement.querySelector('.card__delete-button');
-   
-  cardTitle.textContent = data.name;
-  
-  figCap.textContent = data.name;
-  cardImage.onerror = function() {
-    this.src = data.link;
-  }
- 
-  
-
-  cardDeleteButton.addEventListener('click', () => {
-    //remove card   
-    cardElement.remove();
-  })
-
-  cardLikeButton.addEventListener('click', (e) => {
-  //   //toggle heartState
-  e.target.classList.toggle('card__vector_highlight');
-  })
- 
-
-  cardImage.addEventListener('click', () => {
-    //open image modal
-    toggleModal(imageModal);
-    
-    popImage.src = data.link;
-    figCap.textContent = data.name;
-    
-  })
-
- 
-  
-  
-  list.append(cardElement);
-})
 
 
 // Function to create new card from pop up form
@@ -208,4 +162,4 @@ cardForm.addEventListener('submit', (event) => {
   toggleModal(elementCard);
  })
  
- 
+ initialCards.forEach(data => createCard(data));
