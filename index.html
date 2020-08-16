@@ -48,9 +48,15 @@
         <button type="button" class="modal__close" aria-label="Close Button"></button>
         <form action="#" class="form">
           <h2 class="modal__image">Edit Profile</h2>
-          <input type="text" value="" placeholder="Name" class="form__input form__input_name">
-          <input type="text" value="" placeholder="Occupation" class="form__input form__input_occupation">
-          <button class="modal__submit-button" type="submit">Save</button>
+          <input id="profile-name" type="text" name="name" value="" placeholder="Name" class="form__input form__input_name" required minlength="2" maxlength="40">
+
+          <span id="profile-name-error" class="popup__error"></span>
+
+          <input id="profile-text" type="text" name="description" value="" placeholder="Occupation" class="form__input form__input_occupation" required minlength="2" maxlength="200">
+
+          <span id="profile-text-error" class="popup__error"></span>
+
+          <button class="modal__submit-button modal__submit-button_disabled" type="submit" disabled>Save</button>
         </form>
       </div>
     </div>
@@ -60,9 +66,15 @@
         <button type="button" class="modal__close" aria-label="Close Button"></button>
         <form action="#" class="form form_card">
           <h2 class="modal__image">New Place</h2>
-          <input type="text" value="" placeholder="Title" class="form__input form__input_title">
-          <input type="url" value="" placeholder="Image Link" class="form__input form__input_image-link">
-          <button class="modal__submit-button" type="submit">Create</button>
+          <input id="card-title" type="text" name="place-name" value="" placeholder="Title" class="form__input form__input_title" required minlength="1" max="30">
+
+          <span id="card-title-error" class="popup__error"></span>
+
+          <input id="card-url" type="url" name= "link" value="" placeholder="Image Link" class="form__input form__input_image-link" required>
+
+          <span id="card-url-error" class="popup__error"></span>
+
+          <button class="modal__submit-button modal__submit-button_disabled" type="submit">Create</button>
         </form>
       </div>
     </div>
@@ -82,6 +94,7 @@
     </footer>
 
     
+
     <template class="card-template">
       <div class="card__element">
 
@@ -95,8 +108,12 @@
       </div>
     </template>
 
+    <script src="./scripts/validation.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
 
-    <script src="index.js"></script>
+     
+
+    
   </div>  
 </body>
 

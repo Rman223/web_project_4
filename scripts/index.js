@@ -1,3 +1,4 @@
+const modalMain = document.querySelector('.modal');
 const addProfileModal = document.querySelector('.modal__edit_profile');
 const addCardModal = document.querySelector('.modal__edit_card');
 
@@ -29,6 +30,8 @@ const inputLink = document.querySelector('.form__input_image-link');
 
 const list = document.querySelector('.card');
 const elementCard = document.querySelector('.card__element');
+const pageClose = document.querySelector('.page__content');
+
 
 
 // Toggle between pop up elements and profile & location card edits
@@ -57,7 +60,8 @@ createButton.addEventListener('click', () => {
 
 
 editButton.addEventListener('click', () => {
-  toggleModal(addProfileModal);
+  toggleModal(addProfileModal)
+
 });
   
 closeButton.addEventListener('click', () => {
@@ -82,7 +86,45 @@ toggleModal();
 
 })
 
+// Oneclick close - const pageClose
+window.onclick = function(event) {
+ if(event.target == addProfileModal) {
+   toggleModal(addProfileModal);
+ } else if(event.target == addCardModal) {
+   toggleModal(addCardModal);
+ } else if(event.target == imageModal) {
+   toggleModal(imageModal);
+ } else {
+   return;
+ }
+}
 
+// ESC key close feature
+function closeModal(modal) {
+  modal.classList.remove('modal_overlay');  
+};
+
+window.addEventListener('keydown', function(event) {  
+  if (event.key == "Escape") {
+      closeModal(addProfileModal);     
+} 
+});
+window.addEventListener('keydown', function(event) {  
+  if (event.key == "Escape") {
+      closeModal(addCardModal);     
+} 
+});
+window.addEventListener('keydown', function(event) {  
+  if (event.key == "Escape") {
+      closeModal(imageModal);     
+} 
+});
+
+
+
+
+
+ 
 const initialCards = [
 
   {
@@ -115,7 +157,7 @@ const initialCards = [
 // Function to create new card from pop up form
 function createCard(data) {
   // here we do everything required for creating a card
-  const cardTemplate = document.querySelector('.card-template') .content.querySelector('.card__element')  ;
+  const cardTemplate = document.querySelector('.card-template').content.querySelector('.card__element');
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardImage = cardElement.querySelector('.card__item-photo');
@@ -130,7 +172,7 @@ function createCard(data) {
     this.src = data.link;
   }
  
-  
+
 
   cardDeleteButton.addEventListener('click', () => {
     //remove card   
@@ -163,3 +205,5 @@ cardForm.addEventListener('submit', (event) => {
  })
  
  initialCards.forEach(data => createCard(data));
+
+

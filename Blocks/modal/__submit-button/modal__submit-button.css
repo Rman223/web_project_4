@@ -7,10 +7,14 @@
   margin: 18.26px 36px 36.51px 36px;
   background-color: #000000;
   color: #ffffff;
+  border: 1px solid #000000;
+  
 } 
+
 .modal__submit-button:hover {
   opacity: .8;
 }
+
 
 @media screen and (max-width: 425px) {
   .modal__submit-button {
