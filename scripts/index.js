@@ -1,6 +1,7 @@
 const modalMain = document.querySelector('.modal');
 const addProfileModal = document.querySelector('.modal__edit_profile');
 const addCardModal = document.querySelector('.modal__edit_card');
+const profile = document.querySelector('.profile');
 
 const editButton = document.querySelector('.profile__rectangle-small');
 
@@ -75,14 +76,11 @@ submitButton.addEventListener('click',() => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
-
-
 profileName.textContent = inputName.value;
 profileOccupation.textContent = inputOccupation.value;
 
 
-toggleModal();
+toggleModal(profile);
 
 })
 
@@ -201,7 +199,7 @@ cardForm.addEventListener('submit', (event) => {
     event.preventDefault();
     // Dont forget that you need to select inputName and inputLink inputs from modal with card addition
     createCard({name: inputTitle.value, link: inputLink.value}); // we also use our createCard function when user adds a new card
-  toggleModal(elementCard);
+  toggleModal(profile);
  })
  
  initialCards.forEach(data => createCard(data));
