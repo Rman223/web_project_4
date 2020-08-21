@@ -1,5 +1,4 @@
-const submitButtonSelector = document.querySelector('.modal__submit-button');
-
+// const submitButtonSelector = document.querySelector('.modal__submit-button');
 
 function showErrorMessage(input, form, errorClass, inputErrorClass) {
   const error = document.querySelector('#' + input.id + '-error');
@@ -17,8 +16,6 @@ function hideErrorMessage(input, form, errorClass, inputErrorClass) {
   input.classList.remove(inputErrorClass);
 }
 
-
-
 function checkInputValidity(input, form, errorClass, inputErrorClass) {
     if(input.validity.valid) {
       hideErrorMessage(input, form, errorClass, inputErrorClass );
@@ -31,7 +28,7 @@ function checkInputValidity(input, form, errorClass, inputErrorClass) {
 
 function toggleButtonState(inputs, button, inactiveButtonClass) {
   const isValid = inputs.every((input) => input.validity.valid);
-  
+  const submitButtonSelector = document.querySelector('.modal__submit-button');
   if (isValid) {
     
     button.classList.remove(inactiveButtonClass);
@@ -39,6 +36,7 @@ function toggleButtonState(inputs, button, inactiveButtonClass) {
   } else {
     button.classList.add(inactiveButtonClass);
     
+    submitButtonSelector.setAttribute("disabled", true);
   }
 }
 
@@ -66,11 +64,7 @@ function enableValidation ({
       })
     })
   })
-};
-
-
-
-
+}
 
 enableValidation({
   formSelector: ".form",
