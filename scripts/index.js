@@ -172,20 +172,23 @@ function createCard(data) {
   return cardElement
 }
 
-function addSubmitNewCard(evt) {
-  evt.preventDefault();
-  const cardElement = createCard(data.name, data.link);
+function addCardToDom(cardElement) {
+  
   list.prepend(cardElement);
-  console.log(cardElement);
+  
 }
 
 cardForm.addEventListener('submit', (event) => {
   event.preventDefault();
   // Dont forget that you need to select inputName and inputLink inputs from modal with card addition
-  createCard({ name: inputTitle.value, link: inputLink.value }); // we also use our createCard function when user adds a new card
+  const cardElement = createCard({ name: inputTitle.value, link: inputLink.value }); // we also use our createCard function when user adds a new card
+  addCardToDom(cardElement);
   toggleModal(profile);
 })
 
-initialCards.forEach(data => createCard(data));
+initialCards.forEach(data => {
+  const card = createCard(data);
+  addCardToDom(card);
+})
 
 
