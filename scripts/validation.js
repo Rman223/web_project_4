@@ -1,4 +1,4 @@
-// const submitButtonSelector = document.querySelector('.modal__submit-button');
+
 
 function showErrorMessage(input, form, errorClass, inputErrorClass) {
   const error = document.querySelector('#' + input.id + '-error');

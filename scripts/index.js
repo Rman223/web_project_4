@@ -29,8 +29,12 @@ const pageClose = document.querySelector('.page__content');
 
 // Toggle between pop up elements and profile & location card edits
 function toggleModal(modal) {
-
   modal.classList.toggle('modal_overlay');
+}
+
+// // ESC key close feature
+function closeModal(modal) {
+  modal.classList.remove('modal_overlay');
 }
 
 //New card form buttons
@@ -42,9 +46,14 @@ addCardLargeButtonOpen.addEventListener('click', () => {
   toggleModal(addCardModal);
   window.addEventListener('keydown', function (event) {
     if (event.key == "Escape") {
-      closeModal(imageModal);
+      closeModal(addCardModal);
     }
   })
+  window.onclick = function (event) {
+    if (event.target == addCardModal) {
+      toggleModal(addCardModal);
+    }
+  }
 });
 closeCardLargeButton.addEventListener('click', () => {
   toggleModal(addCardModal);
@@ -62,6 +71,11 @@ editButton.addEventListener('click', () => {
       closeModal(addProfileModal);
     }
   })
+  window.onclick = function (event) {
+    if (event.target == addProfileModal) {
+      toggleModal(addProfileModal);
+    }
+  }
 });
 
 closeButton.addEventListener('click', () => {
@@ -80,27 +94,18 @@ formProfile.addEventListener('submit', (e) => {
   toggleModal(profile);
 })
 
-// Oneclick close - const pageClose
+// Oneclick close - for pop up Image
 window.onclick = function (event) {
-  if (event.target == addProfileModal) {
-    toggleModal(addProfileModal);
-  } else if (event.target == addCardModal) {
-    toggleModal(addCardModal);
-  } else if (event.target == imageModal) {
+  if (event.target == imageModal) {
     toggleModal(imageModal);
   } else {
     return;
   }
 }
-
-// ESC key close feature
-function closeModal(modal) {
-  modal.classList.remove('modal_overlay');
-};
-
+//ESC close for pop up image
 window.addEventListener('keydown', function (event) {
   if (event.key == "Escape") {
-    closeModal(addCardModal);
+    closeModal(imageModal);
   }
 });
 
@@ -163,7 +168,7 @@ function createCard(data) {
   cardImage.addEventListener('click', () => {
     //open image modal
     toggleModal(imageModal);
-
+    // popImage.setAttribute("");
     popImage.src = data.link;
     figCap.textContent = data.name;
 
@@ -173,9 +178,9 @@ function createCard(data) {
 }
 
 function addCardToDom(cardElement) {
-  
+
   list.prepend(cardElement);
-  
+
 }
 
 cardForm.addEventListener('submit', (event) => {
