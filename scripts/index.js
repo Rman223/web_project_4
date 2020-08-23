@@ -30,6 +30,21 @@ const pageClose = document.querySelector('.page__content');
 // Toggle between pop up elements and profile & location card edits
 function toggleModal(modal) {
   modal.classList.toggle('modal_overlay');
+  window.removeEventListener('keydown', function (event) {
+    if (event.key == "Escape") {
+      closeModal(addCardModal);
+    }
+  })
+  window.removeEventListener('keydown', function (event) {
+    if (event.key == "Escape") {
+      closeModal(addProfileModal);
+    }
+  })
+  window.removeEventListener('keydown', function (event) {
+    if (event.key == "Escape") {
+      closeModal(imageModal);
+    }
+  })
 }
 
 // // ESC key close feature
@@ -49,6 +64,11 @@ addCardLargeButtonOpen.addEventListener('click', () => {
       closeModal(addCardModal);
     }
   })
+  // window.removeEventListener('keydown', function (event) {
+  //   if (event.key == "Escape") {
+  //     closeModal(addCardModal);
+  //   }
+  // })
   window.onclick = function (event) {
     if (event.target == addCardModal) {
       toggleModal(addCardModal);
@@ -71,6 +91,11 @@ editButton.addEventListener('click', () => {
       closeModal(addProfileModal);
     }
   })
+  // window.removeEventListener('keydown', function (event) {
+  //   if (event.key == "Escape") {
+  //     closeModal(addProfileModal);
+  //   }
+  // })
   window.onclick = function (event) {
     if (event.target == addProfileModal) {
       toggleModal(addProfileModal);
@@ -98,16 +123,19 @@ formProfile.addEventListener('submit', (e) => {
 window.onclick = function (event) {
   if (event.target == imageModal) {
     toggleModal(imageModal);
-  } else {
-    return;
-  }
+  } 
 }
 //ESC close for pop up image
 window.addEventListener('keydown', function (event) {
   if (event.key == "Escape") {
     closeModal(imageModal);
   }
-});
+})
+// window.removeEventListener('keydown', function (event) {
+//   if (event.key == "Escape") {
+//     closeModal(imageModal);
+//   }
+// })
 
 const initialCards = [
 
@@ -195,5 +223,4 @@ initialCards.forEach(data => {
   const card = createCard(data);
   addCardToDom(card);
 })
-
 
