@@ -28,93 +28,39 @@ const elementCard = document.querySelector('.card__element');
 const pageClose = document.querySelector('.page__content');
 
 // Toggle between pop up elements and profile & location card edits
-function openModal(modal) {
-  modal.classList.add('modal_overlay');
-  window.addEventListener("keydown", escCloseModal);
-  window.addEventListener("click", clickClose);
-}
-function closeModal(modal) {
-  modal.classList.remove('modal_overlay');
-  window.removeEventListener("keydown", escCloseModal);
-  window.removeEventListener("click", clickClose);
-}
-function toggleModal(modal) {
-  if (modal.classList.contains('modal_overlay')) {
-  closeModal(modal);
+let activeModal = null;
+const handleEscPress = event => {
+  if(event.key === "Escape") {
+    toggleModal(activeModal);
+  }
+};
+const handleModalClick = event => {
+  if (event.target.classList.contains('modal__close') ||
+      event.target.classList.contains('modal')) {
+    toggleModal(activeModal);
+  }
+};
+const toggleModal = modal => {
+  const isVisible = modal.classList.contains('modal_overlay');
+  activeModal = modal;
+  modal.classList.toggle('modal_overlay');
+  if (isVisible) {
+    document.removeEventListener('keydown', handleEscPress);
+    modal.removeEventListener('click', handleModalClick);
+    activeModal = null;
   } else {
-  openModal(modal);
+    document.addEventListener('keydown', handleEscPress);
+    modal.addEventListener('click', handleModalClick);
   }
-}
-
-function escCloseModal(evt) {
-  if (evt.key == "Escape" && addCardModal.classList.contains("modal_overlay")) {
-    toggleModal(addCardModal);
-  }
-  if (evt.key == "Escape" && addProfileModal.classList.contains("modal_overlay")) {
-    toggleModal(addProfileModal);
-  }
-  if (evt.key == "Escape" && imageModal.classList.contains("modal_overlay")) {
-    toggleModal(imageModal);
-  }
-}
-
-function clickClose(evt) {
-  if (evt.target === addCardModal) {
-    toggleModal(addCardModal);
-    window.removeEventListener('click', clickClose);
-  }
-  if (evt.target === addProfileModal) {
-    toggleModal(addProfileModal);
-    window.removeEventListener('click', clickClose);
-  }
-  if (evt.target === imageModal) {
-    toggleModal(imageModal);
-    window.removeEventListener('click', clickClose);
-  }
-}
-
-//New card form buttons
-closeImage.addEventListener('click', () => {
-  toggleModal(imageModal);
-
-});
-
-addCardLargeButtonOpen.addEventListener('click', () => {
-  toggleModal(addCardModal);
-  // window.addEventListener('keydown', escCloseModal);
-  // window.addEventListener('click', clickClose);
-});
-
-closeCardLargeButton.addEventListener('click', () => {
-  toggleModal(addCardModal);
-});
-createButton.addEventListener('click', () => {
-  toggleModal(addCardModal);
-});
-
-//  Profile edit buttom
-
-editButton.addEventListener('click', () => {
+};
+const handleEditClick = () => {
   toggleModal(addProfileModal);
-  // window.addEventListener("keydown", escCloseModal);
-  // window.addEventListener('click', clickClose);
-});
-
-closeButton.addEventListener('click', () => {
-  toggleModal(addProfileModal);
-});
-
-submitButton.addEventListener('click', () => {
-  toggleModal(addProfileModal);
-});
-
-formProfile.addEventListener('submit', (e) => {
-  e.preventDefault();
-  profileName.textContent = inputName.value;
-  profileOccupation.textContent = inputOccupation.value;
-
-  toggleModal(profile);
-})
+};
+const handleAddClick = () => {
+  toggleModal(addCardModal);
+};
+editButton.addEventListener('click', handleEditClick);
+addCardLargeButtonOpen.addEventListener('click', handleAddClick);
 
 const initialCards = [
 
