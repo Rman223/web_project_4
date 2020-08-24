@@ -28,21 +28,33 @@ const elementCard = document.querySelector('.card__element');
 const pageClose = document.querySelector('.page__content');
 
 // Toggle between pop up elements and profile & location card edits
-function toggleModal(modal) {
-  modal.classList.toggle('modal_overlay');
+function openModal(modal) {
+  modal.classList.add('modal_overlay');
+  window.addEventListener("keydown", escCloseModal);
+  window.addEventListener("click", clickClose);
 }
+function closeModal(modal) {
+  modal.classList.remove('modal_overlay');
+  window.removeEventListener("keydown", escCloseModal);
+  window.removeEventListener("click", clickClose);
+}
+function toggleModal(modal) {
+  if (modal.classList.contains('modal_overlay')) {
+  closeModal(modal);
+  } else {
+  openModal(modal);
+  }
+}
+
 function escCloseModal(evt) {
   if (evt.key == "Escape" && addCardModal.classList.contains("modal_overlay")) {
     toggleModal(addCardModal);
-    window.removeEventListener("keydown", escCloseModal);
   }
   if (evt.key == "Escape" && addProfileModal.classList.contains("modal_overlay")) {
     toggleModal(addProfileModal);
-    window.removeEventListener("keydown", escCloseModal);
   }
   if (evt.key == "Escape" && imageModal.classList.contains("modal_overlay")) {
     toggleModal(imageModal);
-    window.removeEventListener("keydown", escCloseModal);
   }
 }
 
@@ -69,8 +81,8 @@ closeImage.addEventListener('click', () => {
 
 addCardLargeButtonOpen.addEventListener('click', () => {
   toggleModal(addCardModal);
-  window.addEventListener('keydown', escCloseModal);
-  window.addEventListener('click', clickClose);
+  // window.addEventListener('keydown', escCloseModal);
+  // window.addEventListener('click', clickClose);
 });
 
 closeCardLargeButton.addEventListener('click', () => {
@@ -84,8 +96,8 @@ createButton.addEventListener('click', () => {
 
 editButton.addEventListener('click', () => {
   toggleModal(addProfileModal);
-  window.addEventListener("keydown", escCloseModal);
-  window.addEventListener('click', clickClose);
+  // window.addEventListener("keydown", escCloseModal);
+  // window.addEventListener('click', clickClose);
 });
 
 closeButton.addEventListener('click', () => {
@@ -163,13 +175,13 @@ function createCard(data) {
   cardImage.addEventListener('click', () => {
     //open image modal
     toggleModal(imageModal);
-    window.addEventListener("keydown", escCloseModal);
-    window.addEventListener('click', clickClose);
+    // window.addEventListener("keydown", escCloseModal);
+    // window.addEventListener('click', clickClose);
     popImage.setAttribute("alt", figCap.textContent = data.name);
     popImage.src = data.link;
     figCap.textContent = data.name;
   })
-  // list.prepend(cardElement);
+  
   return cardElement
 }
 

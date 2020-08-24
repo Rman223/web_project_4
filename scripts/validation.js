@@ -66,6 +66,7 @@ function enableValidation ({
   })
 }
 
+
 enableValidation({
   formSelector: ".form",
   inputSelector: ".form__input",
