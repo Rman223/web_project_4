@@ -61,12 +61,7 @@ closeImage.addEventListener('click', () => {
 addCardLargeButtonOpen.addEventListener('click', () => {
   toggleModal(addCardModal);
   window.addEventListener('keydown', escCloseModal);
-  // window.addEventListener('keydown', function (event) {
-  //   if (event.key == "Escape") {
-  //     closeModal(addCardModal);
-  //   }
-  // })
-  
+ 
   window.onclick = function (event) {
     if (event.target == addCardModal) {
       toggleModal(addCardModal);
@@ -113,14 +108,10 @@ window.onclick = function (event) {
   if (event.target == imageModal) {
     toggleModal(imageModal);
   } 
-}
+};
 // //ESC close for pop up image
 window.addEventListener('keydown', escCloseModal);
-// window.addEventListener('keydown', function (event) {
-//   if (event.key == "Escape") {
-//     closeModal(imageModal);
-//   }
-// })
+
 
 
 const initialCards = [
