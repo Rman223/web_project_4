@@ -1,4 +1,4 @@
-
+// Profile card
 const addProfileModal = document.querySelector('.modal__edit_profile');
 const addCardModal = document.querySelector('.modal__edit_card');
 const profile = document.querySelector('.profile');
@@ -8,7 +8,7 @@ const profileName = document.querySelector('.profile__title-text');
 const profileOccupation = document.querySelector('.profile__subtitle-text');
 const submitButton = document.querySelector('.modal__submit-button');
 //Images
-const imageModal = document.querySelector('.modal__edit_image');
+const imageModal = document.querySelector('.modal__edit_image');  
 const closeImage = imageModal.querySelector('.modal__close_image');
 const figCap = imageModal.querySelector('.modal__figcap');
 const popImage = imageModal.querySelector('.modal__pop-image');
@@ -28,23 +28,24 @@ const elementCard = document.querySelector('.card__element');
 const pageClose = document.querySelector('.page__content');
 
 // Toggle between pop up elements and profile & location card edits
+function escCloseModal(evt) {
+  if(evt.key == "Escape" && addCardModal.classList.contains("modal_overLay")) {
+    toggleModal(addCardModal);
+    window.removeEventListener("keydown", escCloseModal);
+  }
+  if(evt.key == "Escape" && addProfileModal.classList.contains("modal_overLay")) {
+    toggleModal(addProfileModal);
+    window.removeEventListener("keydown", escCloseModal);
+  }
+  if(evt.key == "Escape" && imageModal.classList.contains("modal_overLay")) {
+    toggleModal(imageModal);
+    window.removeEventListener("keydown", escCloseModal);
+  }
+}
+
 function toggleModal(modal) {
   modal.classList.toggle('modal_overlay');
-  window.removeEventListener('keydown', function (event) {
-    if (event.key == "Escape") {
-      closeModal(addCardModal);
-    }
-  })
-  window.removeEventListener('keydown', function (event) {
-    if (event.key == "Escape") {
-      closeModal(addProfileModal);
-    }
-  })
-  window.removeEventListener('keydown', function (event) {
-    if (event.key == "Escape") {
-      closeModal(imageModal);
-    }
-  })
+
 }
 
 // // ESC key close feature
@@ -59,16 +60,13 @@ closeImage.addEventListener('click', () => {
 
 addCardLargeButtonOpen.addEventListener('click', () => {
   toggleModal(addCardModal);
-  window.addEventListener('keydown', function (event) {
-    if (event.key == "Escape") {
-      closeModal(addCardModal);
-    }
-  })
-  // window.removeEventListener('keydown', function (event) {
+  window.addEventListener('keydown', escCloseModal);
+  // window.addEventListener('keydown', function (event) {
   //   if (event.key == "Escape") {
   //     closeModal(addCardModal);
   //   }
   // })
+  
   window.onclick = function (event) {
     if (event.target == addCardModal) {
       toggleModal(addCardModal);
@@ -85,17 +83,8 @@ createButton.addEventListener('click', () => {
 //  Profile edit buttom
 
 editButton.addEventListener('click', () => {
-  toggleModal(addProfileModal)
-  window.addEventListener('keydown', function (event) {
-    if (event.key == "Escape") {
-      closeModal(addProfileModal);
-    }
-  })
-  // window.removeEventListener('keydown', function (event) {
-  //   if (event.key == "Escape") {
-  //     closeModal(addProfileModal);
-  //   }
-  // })
+  toggleModal(addProfileModal);
+  window.addEventListener("keydown", escCloseModal);
   window.onclick = function (event) {
     if (event.target == addProfileModal) {
       toggleModal(addProfileModal);
@@ -125,17 +114,14 @@ window.onclick = function (event) {
     toggleModal(imageModal);
   } 
 }
-//ESC close for pop up image
-window.addEventListener('keydown', function (event) {
-  if (event.key == "Escape") {
-    closeModal(imageModal);
-  }
-})
-// window.removeEventListener('keydown', function (event) {
+// //ESC close for pop up image
+window.addEventListener('keydown', escCloseModal);
+// window.addEventListener('keydown', function (event) {
 //   if (event.key == "Escape") {
 //     closeModal(imageModal);
 //   }
 // })
+
 
 const initialCards = [
 
@@ -196,7 +182,7 @@ function createCard(data) {
   cardImage.addEventListener('click', () => {
     //open image modal
     toggleModal(imageModal);
-    // popImage.setAttribute("");
+    popImage.setAttribute("alt", figCap.textContent = data.name);
     popImage.src = data.link;
     figCap.textContent = data.name;
 
