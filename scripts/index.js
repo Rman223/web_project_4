@@ -49,7 +49,7 @@ function toggleModal(modal) {
 }
 
 // Oneclick close - for pop up Image
-window.onclick = function (event) {
+document.onclick = function (event) {
   if (event.target == imageModal) {
     toggleModal(imageModal);
   } 
