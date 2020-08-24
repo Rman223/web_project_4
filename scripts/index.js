@@ -48,10 +48,14 @@ function toggleModal(modal) {
 
 }
 
-// // ESC key close feature
-function closeModal(modal) {
-  modal.classList.remove('modal_overlay');
-}
+// Oneclick close - for pop up Image
+window.onclick = function (event) {
+  if (event.target == imageModal) {
+    toggleModal(imageModal);
+  } 
+};
+// //ESC close for pop up image
+window.addEventListener('keydown', escCloseModal);
 
 //New card form buttons
 closeImage.addEventListener('click', () => {
@@ -103,14 +107,7 @@ formProfile.addEventListener('submit', (e) => {
   toggleModal(profile);
 })
 
-// Oneclick close - for pop up Image
-window.onclick = function (event) {
-  if (event.target == imageModal) {
-    toggleModal(imageModal);
-  } 
-};
-// //ESC close for pop up image
-window.addEventListener('keydown', escCloseModal);
+
 
 
 
