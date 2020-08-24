@@ -48,14 +48,10 @@ function toggleModal(modal) {
 
 }
 
-// Oneclick close - for pop up Image
-window.onclick = function (event) {
-  if (event.target == imageModal) {
-    toggleModal(imageModal);
-  } 
-};
-// //ESC close for pop up image
-window.addEventListener('keydown', escCloseModal);
+// // ESC key close feature
+function closeModal(modal) {
+  modal.classList.remove('modal_overlay');
+}
 
 //New card form buttons
 closeImage.addEventListener('click', () => {
