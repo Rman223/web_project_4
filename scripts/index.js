@@ -8,7 +8,7 @@ const profileName = document.querySelector('.profile__title-text');
 const profileOccupation = document.querySelector('.profile__subtitle-text');
 const submitButton = document.querySelector('.modal__submit-button');
 //Images
-const imageModal = document.querySelector('.modal__edit_image');  
+const imageModal = document.querySelector('.modal__edit_image');
 const closeImage = imageModal.querySelector('.modal__close_image');
 const figCap = imageModal.querySelector('.modal__figcap');
 const popImage = imageModal.querySelector('.modal__pop-image');
@@ -28,63 +28,64 @@ const elementCard = document.querySelector('.card__element');
 const pageClose = document.querySelector('.page__content');
 
 // Toggle between pop up elements and profile & location card edits
+function toggleModal(modal) {
+  modal.classList.toggle('modal_overlay');
+}
 function escCloseModal(evt) {
-  if(evt.key == "Escape" && addCardModal.classList.contains("modal_overLay")) {
+  if (evt.key == "Escape" && addCardModal.classList.contains("modal_overlay")) {
     toggleModal(addCardModal);
     window.removeEventListener("keydown", escCloseModal);
   }
-  if(evt.key == "Escape" && addProfileModal.classList.contains("modal_overLay")) {
+  if (evt.key == "Escape" && addProfileModal.classList.contains("modal_overlay")) {
     toggleModal(addProfileModal);
     window.removeEventListener("keydown", escCloseModal);
   }
-  if(evt.key == "Escape" && imageModal.classList.contains("modal_overLay")) {
+  if (evt.key == "Escape" && imageModal.classList.contains("modal_overlay")) {
     toggleModal(imageModal);
     window.removeEventListener("keydown", escCloseModal);
   }
 }
 
-function toggleModal(modal) {
-  modal.classList.toggle('modal_overlay');
-
-}
-
-// // ESC key close feature
-function closeModal(modal) {
-  modal.classList.remove('modal_overlay');
+function clickClose(evt) {
+  if (evt.target === addCardModal) {
+    toggleModal(addCardModal);
+    window.removeEventListener('click', clickClose);
+  }
+  if (evt.target === addProfileModal) {
+    toggleModal(addProfileModal);
+    window.removeEventListener('click', clickClose);
+  }
+  if (evt.target === imageModal) {
+    toggleModal(imageModal);
+    window.removeEventListener('click', clickClose);
+  }
 }
 
 //New card form buttons
 closeImage.addEventListener('click', () => {
   toggleModal(imageModal);
+
 });
 
 addCardLargeButtonOpen.addEventListener('click', () => {
   toggleModal(addCardModal);
   window.addEventListener('keydown', escCloseModal);
- 
-  window.onclick = function (event) {
-    if (event.target == addCardModal) {
-      toggleModal(addCardModal);
-    }
-  }
+  window.addEventListener('click', clickClose);
 });
+
 closeCardLargeButton.addEventListener('click', () => {
   toggleModal(addCardModal);
-})
+});
 createButton.addEventListener('click', () => {
   toggleModal(addCardModal);
-})
+});
 
 //  Profile edit buttom
 
 editButton.addEventListener('click', () => {
   toggleModal(addProfileModal);
   window.addEventListener("keydown", escCloseModal);
-  window.onclick = function (event) {
-    if (event.target == addProfileModal) {
-      toggleModal(addProfileModal);
-    }
-  }
+  window.addEventListener('click', clickClose);
 });
 
 closeButton.addEventListener('click', () => {
@@ -102,10 +103,6 @@ formProfile.addEventListener('submit', (e) => {
 
   toggleModal(profile);
 })
-
-
-
-
 
 const initialCards = [
 
@@ -166,10 +163,11 @@ function createCard(data) {
   cardImage.addEventListener('click', () => {
     //open image modal
     toggleModal(imageModal);
+    window.addEventListener("keydown", escCloseModal);
+    window.addEventListener('click', clickClose);
     popImage.setAttribute("alt", figCap.textContent = data.name);
     popImage.src = data.link;
     figCap.textContent = data.name;
-
   })
   // list.prepend(cardElement);
   return cardElement
