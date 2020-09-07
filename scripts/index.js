@@ -1,6 +1,31 @@
-// Profile card
+import FormValidator from './FormValidator.js';
+
+const defualtConfig = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".modal__submit-button",
+  inactiveButtonClass: "modal__submit-button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
+};
 const addProfileModal = document.querySelector('.modal__edit_profile');
+const addProfileForm = addProfileModal.querySelector('.form');
 const addCardModal = document.querySelector('.modal__edit_card');
+const addCardForm = addCardModal.querySelector('.form');
+
+const addFormValidator = new FormValidator(defualtConfig,addCardForm  );
+const editFormValidator = new FormValidator(defualtConfig, addProfileForm);
+
+addFormValidator.enableValidation();
+editFormValidator.enableValidation();
+
+
+
+
+
+// Profile card
+// const addProfileModal = document.querySelector('.modal__edit_profile');
+// const addCardModal = document.querySelector('.modal__edit_card');
 const profile = document.querySelector('.profile');
 const editButton = document.querySelector('.profile__rectangle-small');
 const closeButton = document.querySelector('.modal__close');
