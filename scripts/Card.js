@@ -1,8 +1,52 @@
+let activeModal = null;
+
+const toggleModal = modal => {
+  const isVisible = modal.classList.contains('modal_overlay');
+  activeModal = modal;
+  modal.classList.toggle('modal_overlay');
+  if (isVisible) {
+    document.removeEventListener('keydown', handleEscPress);
+    modal.removeEventListener('click', handleModalClick);
+    activeModal = null;
+  } else {
+    document.addEventListener('keydown', handleEscPress);
+    modal.addEventListener('click', handleModalClick);
+  }
+};
+
+const handleModalClick = event => {
+  if (event.target.classList.contains('modal__close') ||
+      event.target.classList.contains('modal')) {
+    toggleModal(activeModal);
+  }
+};
+
+const handleEscPress = event => {
+  if(event.key === "Escape") {
+    toggleModal(activeModal);
+  }
+};
+
+
 class Card {
   constructor(data, cardTemplateSelector) {
     this._text = data.text;
     this._link = data.link;
     this._cardTemplate = document.querySelector(cardTemplateSelector).content.querySelector('.card__element');
+  }
+
+  _handleLikeButton() {
+    e.target.classList.toggle('card__vector_highlight');
+  }
+  _handleDeleteButton(){
+    this._cardElement.remove();
+  }
+  _handleCardImage(){
+    toggleModal(imageModal);
+      
+    popImage.setAttribute("alt", figCap.textContent = data.name);
+    popImage.src = data.link;
+    figCap.textContent = data.name;
   }
   _addEventListners() {
     const cardImage = this._cardElement.querySelector('.card__item-photo');
@@ -12,24 +56,13 @@ class Card {
 
     cardTitle.textContent = this._text;
 
-    cardDeleteButton.addEventListener('click', () => {
-      //remove card   
-      this._cardElement.remove();
-    })
+  
 
-    cardLikeButton.addEventListener('click', (e) => {
-      //   //toggle heartState
-      e.target.classList.toggle('card__vector_highlight');
-    })
+    cardDeleteButton.addEventListener('click', this._handleDeleteButton);
 
-    cardImage.addEventListener('click', () => {
-      
-      toggleModal(imageModal);
-      
-      popImage.setAttribute("alt", figCap.textContent = data.name);
-      popImage.src = data.link;
-      figCap.textContent = data.name;
-    })
+    cardLikeButton.addEventListener('click', this._handleLikeButton);
+
+    cardImage.addEventListener('click', this._handleCardImage);
   }
   createCard() {
 
