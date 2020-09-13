@@ -81,3 +81,5 @@ class Card {
     return this._cardElement
   }
 }
+
+export default Card;
