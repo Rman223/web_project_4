@@ -20,7 +20,7 @@ const editFormValidator = new FormValidator(defualtConfig, addProfileForm);
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 
-const cardCreator = new Card();
+
 
 
 
@@ -180,7 +180,8 @@ cardForm.addEventListener('submit', (event) => {
 })
 
 initialCards.forEach(data => {
-  const card = createCard(data);
-  addCardToDom(card);
+  const cardCreator = new Card('card-template');
+  const cardElement = cardCreator.createCard(data);
+  list.prepend(cardElement);
 })
 
