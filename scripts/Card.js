@@ -1,32 +1,3 @@
-let activeModal = null;
-
-const toggleModal = modal => {
-  const isVisible = modal.classList.contains('modal_overlay');
-  activeModal = modal;
-  modal.classList.toggle('modal_overlay');
-  if (isVisible) {
-    document.removeEventListener('keydown', handleEscPress);
-    modal.removeEventListener('click', handleModalClick);
-    activeModal = null;
-  } else {
-    document.addEventListener('keydown', handleEscPress);
-    modal.addEventListener('click', handleModalClick);
-  }
-};
-
-const handleModalClick = event => {
-  if (event.target.classList.contains('modal__close') ||
-      event.target.classList.contains('modal')) {
-    toggleModal(activeModal);
-  }
-};
-
-const handleEscPress = event => {
-  if(event.key === "Escape") {
-    toggleModal(activeModal);
-  }
-};
-
 
 class Card {
   constructor(data, cardTemplateSelector) {

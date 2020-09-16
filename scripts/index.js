@@ -1,5 +1,5 @@
 import FormValidator from './FormValidator.js';
-import Card from '.Card.js';
+import Card from './Card.js';
 
 const defualtConfig = {
   formSelector: ".form",
@@ -14,13 +14,13 @@ const addProfileForm = addProfileModal.querySelector('.form');
 const addCardModal = document.querySelector('.modal__edit_card');
 const addCardForm = addCardModal.querySelector('.form');
 
-const addFormValidator = new FormValidator(defualtConfig,addCardForm  );
+const addFormValidator = new FormValidator(defualtConfig,addCardForm);
 const editFormValidator = new FormValidator(defualtConfig, addProfileForm);
 
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 
-
+const cardCreator = new Card();
 
 
 
@@ -87,6 +87,14 @@ const handleAddClick = () => {
 };
 editButton.addEventListener('click', handleEditClick);
 addCardLargeButtonOpen.addEventListener('click', handleAddClick);
+
+formProfile.addEventListener('submit', (e) => {
+  e.preventDefault();
+  profileName.textContent = inputName.value;
+  profileOccupation.textContent = inputOccupation.value;
+
+  toggleModal(addProfileModal);
+})
 
 const initialCards = [
 
@@ -168,7 +176,7 @@ cardForm.addEventListener('submit', (event) => {
   // Dont forget that you need to select inputName and inputLink inputs from modal with card addition
   const cardElement = createCard({ name: inputTitle.value, link: inputLink.value }); // we also use our createCard function when user adds a new card
   addCardToDom(cardElement);
-  toggleModal(profile);
+  toggleModal(addCardModal);
 })
 
 initialCards.forEach(data => {

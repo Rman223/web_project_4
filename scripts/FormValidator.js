@@ -20,12 +20,12 @@ class FormValidator {
     error.classList.remove(errorClass);
     input.classList.remove(this._settings.inputErrorClass);
   }
-  _checkInputValidity() {
-    if (this._settings.validity.valid) {
+  _checkInputValidity(input) {
+    if (this._settings.input.valid) {
       this._hideErrorMessage(input, errorClass);
 
     } else {
-      this._showErrorMessage(this._settings, errorClass);
+      this._showErrorMessage(this._settings, input, errorClass);
     }
   }
   _toggleButtonState(inputs, button, inactiveButtonClass) {
