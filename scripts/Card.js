@@ -40,10 +40,10 @@ class Card {
     this._cardElement = this._cardTemplate.cloneNode(true);
 
 
-    cardTitle.textContent = this._text;
+    this.cardTitle = this._text;
 
-    figCap.textContent = this._text;
-    cardImage.onerror = function () {
+    this.figCap = this._text;
+    this.cardImage = function () {
       this.src = this._link;
     }
 

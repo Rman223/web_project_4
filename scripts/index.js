@@ -180,8 +180,8 @@ cardForm.addEventListener('submit', (event) => {
 })
 
 initialCards.forEach(data => {
-  const cardCreator = new Card('card-template');
-  const cardElement = cardCreator.createCard(data);
+  const cardCreator = new Card(data, '.card-template');
+  const cardElement = cardCreator.createCard();
   list.prepend(cardElement);
 })
 
