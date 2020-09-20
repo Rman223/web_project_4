@@ -37,7 +37,7 @@ const submitButton = document.querySelector('.modal__submit-button');
 const imageModal = document.querySelector('.modal__edit_image');
 const closeImage = imageModal.querySelector('.modal__close_image');
 const figCap = imageModal.querySelector('.modal__figcap');
-const popImage = imageModal.querySelector('.modal__pop-image');
+// const popImage = imageModal.querySelector('.modal__pop-image');
 // Forms
 const formProfile = document.querySelector('.form');
 const cardForm = document.querySelector('.form_card')
@@ -66,19 +66,19 @@ const handleModalClick = event => {
     toggleModal(activeModal);
   }
 };
-const toggleModal = modal => {
-  const isVisible = modal.classList.contains('modal_overlay');
-  activeModal = modal;
-  modal.classList.toggle('modal_overlay');
-  if (isVisible) {
-    document.removeEventListener('keydown', handleEscPress);
-    modal.removeEventListener('click', handleModalClick);
-    activeModal = null;
-  } else {
-    document.addEventListener('keydown', handleEscPress);
-    modal.addEventListener('click', handleModalClick);
-  }
-};
+// const toggleModal = modal => {
+//   const isVisible = modal.classList.contains('modal_overlay');
+//   activeModal = modal;
+//   modal.classList.toggle('modal_overlay');
+//   if (isVisible) {
+//     document.removeEventListener('keydown', handleEscPress);
+//     modal.removeEventListener('click', handleModalClick);  
+//     activeModal = null;
+//   } else {
+//     document.addEventListener('keydown', handleEscPress);
+//     modal.addEventListener('click', handleModalClick);
+//   }
+// };
 const handleEditClick = () => {
   toggleModal(addProfileModal);
 };

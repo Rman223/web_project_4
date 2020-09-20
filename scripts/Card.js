@@ -1,43 +1,70 @@
+const toggleModal = modal => {
+  const isVisible = modal.classList.contains('modal_overlay');
+  activeModal = modal;
+  modal.classList.toggle('modal_overlay');
+  if (isVisible) {
+    document.removeEventListener('keydown', handleEscPress);
+    modal.removeEventListener('click', handleModalClick);
+    activeModal = null;
+  } else {
+    document.addEventListener('keydown', handleEscPress);
+    modal.addEventListener('click', handleModalClick);
+  }
+};
 
 class Card {
   constructor(data, cardTemplateSelector) {
-    this._text = data.text;
+    this._text = data.name;
     this._link = data.link;
-    this._cardTemplate = document.querySelector(cardTemplateSelector).content.querySelector('.card__element');
+    this._cardTemplate = cardTemplateSelector;
+  }
+
+  _getTemplate() {
+    this._card = document.querySelector(this._cardTemplate).content.querySelector('.card__element').cloneNode(true);
+    this._imageElement = this._card.querySelector('.card__item-photo');
+    this._nameElement = this._card.querySelector('.card__title');
+    this._likeBtnElement = this._card.querySelector('.card__vector');
+    this._deleteBtnElement = this._card.querySelector('.card__delete-button');
+    return this._card;
+  }
+  _addContent(){
+    this._imageModal = document.querySelector('.modal__edit_image');
+    this._closeImage = imageModal.querySelector('.modal__close_image');
+    this._figCap = imageModal.querySelector('.modal__figcap');
+     this._popImage = imageModal.querySelector('.modal__pop-image');
+   
+      
+    this._popImage.setAttribute("alt", figCap.textContent = data.name);
+    this._imageElement.src = data.link;
+    this._figCap.textContent = data.name;
+     toggleModal(imageModal);
   }
 
   _handleLikeButton() {
     e.target.classList.toggle('card__vector_highlight');
   }
   _handleDeleteButton(){
-    this._cardElement.remove();
+    this._card.remove();
   }
-  _handleCardImage(){
-    toggleModal(imageModal);
-      
-    popImage.setAttribute("alt", figCap.textContent = data.name);
-    popImage.src = data.link;
-    figCap.textContent = data.name;
-  }
+ 
   _addEventListners() {
-    const cardImage = this._cardElement.querySelector('.card__item-photo');
-    const cardTitle = this._cardElement.querySelector('.card__title');
-    const cardLikeButton = this._cardElement.querySelector('.card__vector');
-    const cardDeleteButton = this._cardElement.querySelector('.card__delete-button');
+    // const cardImage = this._card.querySelector('.card__item-photo');
+    // const cardTitle = this._card.querySelector('.card__title');
+    // const cardLikeButton = this._card.querySelector('.card__vector');
+    // const cardDeleteButton = this._card.querySelector('.card__delete-button');
 
-    cardTitle.textContent = this._text;
-
+    // cardTitle.textContent = this._text;
   
 
-    cardDeleteButton.addEventListener('click', this._handleDeleteButton);
+    this._deleteBtnElement.addEventListener('click', this._handleDeleteButton);
 
-    cardLikeButton.addEventListener('click', this._handleLikeButton);
+    this._likeBtnElement.addEventListener('click', this._handleLikeButton);
 
-    cardImage.addEventListener('click', this._handleCardImage);
+    this._card.addEventListener('click', this._addContent);
   }
   createCard() {
 
-    this._cardElement = this._cardTemplate.cloneNode(true);
+    this._cardCreate = this._getTemplate;
 
 
     this.cardTitle = this._text;
@@ -49,7 +76,7 @@ class Card {
 
 
     this._addEventListners();
-    return this._cardElement
+    return Card;
   }
 }
 
