@@ -125,45 +125,44 @@ const initialCards = [
 ];
 
 // Function to create new card from pop up form
-function createCard(data) {
-  // here we do everything required for creating a card
-  const cardTemplate = document.querySelector('.card-template').content.querySelector('.card__element');
-  const cardElement = cardTemplate.cloneNode(true);
+// function createCard(data) {
+//   // here we do everything required for creating a card
+//   const cardTemplate = document.querySelector('.card-template').content.querySelector('.card__element');
+//   const cardElement = cardTemplate.cloneNode(true);
 
-  const cardImage = cardElement.querySelector('.card__item-photo');
-  const cardTitle = cardElement.querySelector('.card__title');
-  const cardLikeButton = cardElement.querySelector('.card__vector');
-  const cardDeleteButton = cardElement.querySelector('.card__delete-button');
+//   const cardImage = cardElement.querySelector('.card__item-photo');
+//   const cardTitle = cardElement.querySelector('.card__title');
+//   const cardLikeButton = cardElement.querySelector('.card__vector');
+//   const cardDeleteButton = cardElement.querySelector('.card__delete-button');
 
-  cardTitle.textContent = data.name;
+//   cardTitle.textContent = data.name;
 
-  figCap.textContent = data.name;
-  cardImage.onerror = function () {
-    this.src = data.link;
-  }
+//   figCap.textContent = data.name;
+//   cardImage.onerror = function () {
+//     this.src = data.link;
+//   }
 
-  cardDeleteButton.addEventListener('click', () => {
-    //remove card   
-    cardElement.remove();
-  })
+//   cardDeleteButton.addEventListener('click', () => {
+//     //remove card   
+//     cardElement.remove();
+//   })
 
-  cardLikeButton.addEventListener('click', (e) => {
-    //   //toggle heartState
-    e.target.classList.toggle('card__vector_highlight');
-  })
+//   cardLikeButton.addEventListener('click', (e) => {
+//     //   //toggle heartState
+//     e.target.classList.toggle('card__vector_highlight');
+//   })
 
-  cardImage.addEventListener('click', () => {
-    //open image modal
-    toggleModal(imageModal);
-    // window.addEventListener("keydown", escCloseModal);
-    // window.addEventListener('click', clickClose);
-    popImage.setAttribute("alt", figCap.textContent = data.name);
-    popImage.src = data.link;
-    figCap.textContent = data.name;
-  })
+//   cardImage.addEventListener('click', () => {
+//     
+//     toggleModal(imageModal);
+
+//     popImage.setAttribute("alt", figCap.textContent = data.name);
+//     popImage.src = data.link;
+//     figCap.textContent = data.name;
+//   })
   
-  return cardElement
-}
+//   return cardElement
+// }
 
 function addCardToDom(cardElement) {
 
