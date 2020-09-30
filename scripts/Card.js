@@ -71,14 +71,13 @@ class Card {
     // cardTitle.textContent = this._text;
 
     this.figCap = this._text;
-    this.cardImage = function () {
-    this.src.style.backgroundImage = "url('')";
+    this.cardImage = fucnction () {
+      src.style = "url('this.card')";
     }
-
-
     this._addEventListners();
     return this._card;
-  }
+  
+}
 }
 
 export default Card;
