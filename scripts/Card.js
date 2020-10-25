@@ -27,7 +27,7 @@ class Card {
     this._deleteBtnElement = this._card.querySelector('.card__delete-button');
     return this._card;
   }
-  _addContent(){
+  _handleCardClick(){
     
     this._imageModal = document.querySelector('.modal__edit_image');
     this._closeImage = imageModal.querySelector('.modal__close_image');
@@ -68,12 +68,10 @@ class Card {
     this._cardCreate = this._getTemplate;
     
 
-    // cardTitle.textContent = this._text;
+  
 
     this.figCap = this._text;
-    this.cardImage = fucnction () {
-      src.style = "url('this.card')";
-    }
+    this._imageElement = this._link;
     this._addEventListners();
     return this._card;
   
