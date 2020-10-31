@@ -71,7 +71,7 @@ class Card {
   
 
     this.figCap = this._text;
-    this._imageElement = this._link;
+    this._imageElement.src = this._link;
     this._addEventListners();
     return this._card;
   

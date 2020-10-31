@@ -66,19 +66,19 @@ const handleModalClick = event => {
     toggleModal(activeModal);
   }
 };
-// const toggleModal = modal => {
-//   const isVisible = modal.classList.contains('modal_overlay');
-//   activeModal = modal;
-//   modal.classList.toggle('modal_overlay');
-//   if (isVisible) {
-//     document.removeEventListener('keydown', handleEscPress);
-//     modal.removeEventListener('click', handleModalClick);  
-//     activeModal = null;
-//   } else {
-//     document.addEventListener('keydown', handleEscPress);
-//     modal.addEventListener('click', handleModalClick);
-//   }
-// };
+const toggleModal = modal => {
+  const isVisible = modal.classList.contains('modal_overlay');
+  activeModal = modal;
+  modal.classList.toggle('modal_overlay');
+  if (isVisible) {
+    document.removeEventListener('keydown', handleEscPress);
+    modal.removeEventListener('click', handleModalClick);  
+    activeModal = null;
+  } else {
+    document.addEventListener('keydown', handleEscPress);
+    modal.addEventListener('click', handleModalClick);
+  }
+};
 const handleEditClick = () => {
   toggleModal(addProfileModal);
 };
